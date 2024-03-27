@@ -15,7 +15,9 @@ public partial class Ordine
 
     public int UtenteRif { get; set; }
 
-    public virtual ICollection<OrdineVariazione> OrdineVariaziones { get; set; } = new List<OrdineVariazione>();
+    public int VariazioneRif { get; set; }
 
     public virtual Utente UtenteRifNavigation { get; set; } = null!;
+
+    public virtual ICollection<Variazione> VariazioneRifs { get; set; } = new List<Variazione>();
 }
