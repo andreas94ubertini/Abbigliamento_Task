@@ -20,5 +20,12 @@ namespace Abbigliamento_Task
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            creazioneUtente o = new creazioneUtente();
+            o.Show();
+            this.Close();
+        }
     }
 }

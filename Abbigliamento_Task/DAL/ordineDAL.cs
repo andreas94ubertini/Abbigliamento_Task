@@ -10,9 +10,9 @@ namespace Abbigliamento_Task.DAL
 {
     internal class ordineDAL : IDal<Ordine>
     {
-        private ordineDAL istanza;
+        private static ordineDAL istanza;
 
-        public ordineDAL getIstanza()
+        public static ordineDAL getIstanza()
         {
             if (istanza == null)
                 istanza = new ordineDAL();
@@ -70,7 +70,7 @@ namespace Abbigliamento_Task.DAL
             {
                 try
                 {
-                    ctx.Prezzos.Add(t);
+                    ctx.Ordines.Add(t);
                     ctx.SaveChanges();
                     res = true;
                 }

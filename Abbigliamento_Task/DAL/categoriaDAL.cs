@@ -10,9 +10,9 @@ namespace Abbigliamento_Task.DAL
 {
     internal class categoriaDAL : IDal<Categorium>
     {
-        private categoriaDAL istanza;
+        private static categoriaDAL istanza;
 
-        public categoriaDAL getIstanza()
+        public static categoriaDAL getIstanza()
         {
             if (istanza == null)
                 istanza = new categoriaDAL();
