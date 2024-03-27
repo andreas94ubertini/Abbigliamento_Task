@@ -15,12 +15,15 @@ CREATE TABLE Categoria(
 	nomeCategoria VARCHAR (50) NOT NULL UNIQUE
 );
 
+
 CREATE TABLE Prodotto(
 	prodottoID INT PRIMARY KEY IDENTITY(1,1),
 	marca VARCHAR (100) NOT NULL,
 	modello VARCHAR (100) NOT NULL,
 	imgUno TEXT NOT NULL,
 	imgDue TEXT NOT NULL,
+	categoriaRIF INT NOT NULL,
+	FOREIGN KEY (categoriaRIF) REFERENCES Categoria(categoriaID) ON DELETE CASCADE
 );
 
 CREATE TABLE Variazione(
@@ -29,8 +32,6 @@ CREATE TABLE Variazione(
 	taglia VARCHAR (5) NOT NULL,
 	qt INT NOT NULL CHECK (qt>0),
 	prodottoRIF INT NOT NULL,
-
-
 	FOREIGN KEY (prodottoRIF) REFERENCES Prodotto(prodottoID) ON DELETE CASCADE
 );
 
@@ -60,6 +61,5 @@ CREATE TABLE Ordine_Variazione(
 	FOREIGN KEY (ordineRIF) REFERENCES Ordine(ordineID) ON DELETE CASCADE,
 	FOREIGN KEY (variazioneRIF) REFERENCES Variazione(variazioneID) ON DELETE CASCADE
 );
-
 
 ```
