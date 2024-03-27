@@ -1,0 +1,65 @@
+``` sql
+
+
+CREATE TABLE Utente(
+	utenteID INT PRIMARY KEY IDENTITY(1,1),
+	nome VARCHAR(50) NOT NULL,
+	cognome VARCHAR(50) NOT NULL,
+	telefono VARCHAR(30) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	nomeUtente VARCHAR(100) NOT NULL UNIQUE,
+);
+
+CREATE TABLE Categoria(
+	categoriaID INT PRIMARY KEY IDENTITY(1,1),
+	nomeCategoria VARCHAR (50) NOT NULL UNIQUE
+);
+
+CREATE TABLE Prodotto(
+	prodottoID INT PRIMARY KEY IDENTITY(1,1),
+	marca VARCHAR (100) NOT NULL,
+	modello VARCHAR (100) NOT NULL,
+	imgUno TEXT NOT NULL,
+	imgDue TEXT NOT NULL,
+);
+
+CREATE TABLE Variazione(
+	variazioneID INT PRIMARY KEY IDENTITY(1,1),
+	colore VARCHAR(50) NOT NULL,
+	taglia VARCHAR (5) NOT NULL,
+	qt INT NOT NULL CHECK (qt>0),
+	prodottoRIF INT NOT NULL,
+
+
+	FOREIGN KEY (prodottoRIF) REFERENCES Prodotto(prodottoID) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Prezzo(
+	prezzoID INT PRIMARY KEY IDENTITY(1,1),
+	prezzoPieno DECIMAL (6,2) CHECK (prezzoPieno>0) NOT NULL ,
+	prezzoSconto DECIMAL (6,2) CHECK (prezzoSconto>0),
+	dataInizio DATE,
+	dataFine DATE,
+	variazioneRIF INT NOT NULL,
+	FOREIGN KEY (variazioneRIF) REFERENCES Variazione(variazioneID) ON DELETE CASCADE
+);
+
+CREATE TABLE Ordine(
+	ordineID INT PRIMARY KEY IDENTITY(1,1),
+	numeroOrdine VARCHAR(100) NOT NULL,
+	dataEmissione DATE NOT NULL,
+	isArrivato BIT NOT NULL DEFAULT 0,
+	utenteRIF INT NOT NULL,
+	FOREIGN KEY (utenteRIF) REFERENCES Utente(utenteID) ON DELETE CASCADE
+);
+CREATE TABLE Ordine_Variazione(
+	ordine_variazioneID INT PRIMARY KEY IDENTITY (1,1),
+	ordineRIF INT NOT NULL,
+	variazioneRIF INT NOT NULL,
+	FOREIGN KEY (ordineRIF) REFERENCES Ordine(ordineID) ON DELETE CASCADE,
+	FOREIGN KEY (variazioneRIF) REFERENCES Variazione(variazioneID) ON DELETE CASCADE
+);
+
+
+```
