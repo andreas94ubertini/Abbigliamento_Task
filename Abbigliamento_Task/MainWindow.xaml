@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abbigliamento_Task"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="LightGray">
+
     <Grid>
-        <Button Content="Utente" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Height="136" Width="172"/>
+        <DockPanel HorizontalAlignment="Left" Margin="255,156,0,204">
+            <Button Content="Utente" Click="Button_Utente" Background="LightGreen" Width="100"/>
+            <Button Content="Categoria" Click="Button_Categoria" Background="LightGreen" Width="100"/>
+            <Button Content="Prodotto" Click="Button_Prodotto" Background="LightGreen" Width="100"/>
+        </DockPanel>
+    
     </Grid>
 </Window>

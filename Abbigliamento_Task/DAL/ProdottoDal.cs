@@ -49,7 +49,7 @@ namespace Abbigliamento_Task.DAL
             {
                 try
                 {
-                    risultato = ctx.Prodottos.ToList();
+                    risultato = ctx.Prodottos.Include(p=>p.CategoriaRifNavigation).ToList();
                 }
                 catch (Exception e)
                 {
@@ -67,7 +67,7 @@ namespace Abbigliamento_Task.DAL
             {
                 try
                 {
-                    p = ctx.Prodottos.Single(p => p.ProdottoId == id);
+                    p = ctx.Prodottos.Include(p=> p.Variaziones).Single(p => p.ProdottoId == id);
                 }
                 catch (Exception e)
                 {

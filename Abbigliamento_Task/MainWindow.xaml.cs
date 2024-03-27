@@ -21,7 +21,19 @@ namespace Abbigliamento_Task
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Utente(object sender, RoutedEventArgs e)
+        {
+            creazioneUtente o = new creazioneUtente();
+            o.Show();
+            this.Close();
+        }
+        private void Button_Categoria(object sender, RoutedEventArgs e)
+        {
+            CreazioneCat o = new CreazioneCat();
+            o.Show();
+            this.Close();
+        }
+        private void Button_Prodotto(object sender, RoutedEventArgs e)
         {
             ProdottoWindow o = new ProdottoWindow();
             o.Show();

@@ -1,0 +1,59 @@
+﻿<Window x:Class="Abbigliamento_Task.VariazioneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abbigliamento_Task"
+        mc:Ignorable="d"
+        Title="VariazioneWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Width="200">
+            <Label x:Name="colore">Colore</Label>
+            <TextBox x:Name="tbColore"></TextBox>
+            <Label x:Name="taglia">Taglia</Label>
+            <TextBox x:Name="tbtaglia"></TextBox>
+            <Label x:Name="qt">Qt</Label>
+            <TextBox x:Name="tbQt"></TextBox>
+            <Button Content="Salva" x:Name="SalvaVariazioneBtn" Height="23" Width="135" Click="btnSalvaVar_Click"/>
+        </StackPanel>
+        <Grid>
+            <DataGrid x:Name="ListaVar" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                     Header="Colore" 
+                     Binding="{Binding Colore, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                     Header="Taglia" 
+                     Binding="{Binding Taglia, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                     Header="Qt" 
+                     Binding="{Binding Qt, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+
+                </DataGrid.Columns>
+
+
+
+
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -2,6 +2,7 @@
 using Abbigliamento_Task.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Abbigliamento_Task
         public ProdottoWindow()
         {
             InitializeComponent();
-            Lista.ItemsSource = categoriaDAL.getIstanza().GetAll();
+            ListaProd.ItemsSource = ProdottoDal.getIstanza().GetAll();
         }
         private void btnSalvaProdotto_Click(object sender, RoutedEventArgs e)
         {
@@ -40,6 +41,32 @@ namespace Abbigliamento_Task
                 CategoriaRif = c.CategoriaId
             };
             ProdottoDal.getIstanza().Insert(p);
+            ListaProd.ItemsSource = ProdottoDal.getIstanza().GetAll();
         }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Prodotto p = button.DataContext as Prodotto;
+            ProdottoDal.getIstanza().Delete(p);
+            ListaProd.ItemsSource = ProdottoDal.getIstanza().GetAll();
+        }
+        private void ModifyButtonClick(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Prodotto p = button.DataContext as Prodotto;
+            ProdottoDal.getIstanza().Update(p);
+            ListaProd.ItemsSource = ProdottoDal.getIstanza().GetAll();
+        }
+        private void ManageVariazioni(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Prodotto p = button.DataContext as Prodotto;
+            VariazioneWindow v = new VariazioneWindow(p.ProdottoId);
+            v.Show();
+            this.Close();
+            
+        }
+        
     }
 }
