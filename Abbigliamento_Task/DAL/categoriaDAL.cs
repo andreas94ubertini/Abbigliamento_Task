@@ -10,9 +10,9 @@ namespace Abbigliamento_Task.DAL
 {
     internal class categoriaDAL : IDal<Categorium>
     {
-        private categoriaDAL istanza;
+        private static categoriaDAL istanza;
 
-        public categoriaDAL getIstanza()
+        public static categoriaDAL getIstanza()
         {
             if (istanza == null)
                 istanza = new categoriaDAL();
@@ -105,6 +105,23 @@ namespace Abbigliamento_Task.DAL
             return res;
         }
 
+        public void DeleteByID(int id)
+        {
+            using (AbbigliamentoTaskContext ctx = new AbbigliamentoTaskContext())
+            {
+                try
+                {
+                    Categorium c = ctx.Categoria.Single(c => c.CategoriaId == id);
+                    ctx.Categoria.Remove(c);
+                    ctx.SaveChanges();
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
         public bool Update(Categorium t)
         {
             bool res = false;

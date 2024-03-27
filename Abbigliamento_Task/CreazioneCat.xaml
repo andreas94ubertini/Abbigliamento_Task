@@ -1,0 +1,42 @@
+﻿<Window x:Class="Abbigliamento_Task.CreazioneCat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abbigliamento_Task"
+        mc:Ignorable="d"
+        Title="CreazioneCat" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <StackPanel Width="250">
+                <Label>Nome Categoria</Label>
+                <TextBox x:Name="nomeCat"></TextBox>
+                <Button x:Name="btnSalva" Click="btnSalva_Click">Inserisci Categoria</Button>
+            </StackPanel>
+            <Grid>
+                <DataGrid x:Name="catList" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                        Header="Nome Categoria" 
+                        Binding="{Binding NomeCategoria, UpdateSourceTrigger=PropertyChanged}">
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="DeleteButtonClick" Tag="{Binding CategoriaId}">Elimina</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="ModifyButtonClick" Content="Modifica"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

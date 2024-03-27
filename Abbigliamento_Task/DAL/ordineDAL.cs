@@ -70,7 +70,7 @@ namespace Abbigliamento_Task.DAL
             {
                 try
                 {
-                    ctx.Prezzos.Add(t);
+                    ctx.Ordines.Add(t);
                     ctx.SaveChanges();
                     res = true;
                 }
