@@ -10,9 +10,9 @@ namespace Abbigliamento_Task.DAL
 {
     internal class prezzoDAL : IDal <Prezzo>
     {
-        private prezzoDAL istanza;
+        private static prezzoDAL istanza;
 
-        public prezzoDAL getIstanza()
+        public static prezzoDAL getIstanza()
         {
             if(istanza == null)
                 istanza = new prezzoDAL();
