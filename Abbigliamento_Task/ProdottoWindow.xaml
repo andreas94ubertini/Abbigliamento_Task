@@ -1,0 +1,71 @@
+﻿<Window x:Class="Abbigliamento_Task.ProdottoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abbigliamento_Task"
+        mc:Ignorable="d"
+        Title="ProdottoWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Width="200">
+            <Label x:Name="marca">Marca</Label>
+            <TextBox x:Name="tbMarca"></TextBox>
+            <Label x:Name="modello">Modello</Label>
+            <TextBox x:Name="tbModello"></TextBox>
+            <Label x:Name="imgUno">ImgUno</Label>
+            <TextBox x:Name="tbImgUno"></TextBox>
+            <Label x:Name="imgDue">ImgDue</Label>
+            <TextBox x:Name="tbImgDue"></TextBox>
+            <Label x:Name="catRif">Categoria</Label>
+            <ComboBox x:Name="Lista" DisplayMemberPath="NomeCategoria" SelectedValue="CategoriaId"></ComboBox>
+            <Label></Label>
+            <Button Content="Salva" x:Name="SalvaProdotto" Height="23" Width="135" Click="btnSalvaProdotto_Click"/>
+        </StackPanel>
+        <Grid>
+            <DataGrid x:Name="dgUtente" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                      Header="Nome" 
+                      Binding="{Binding Nome, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                      Header="Cognome" 
+                      Binding="{Binding Cognome, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                      Header="Email" 
+                      Binding="{Binding Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                      Header="Telefono" 
+                      Binding="{Binding Telefono, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                      Header="Nome Utente" 
+                      Binding="{Binding NomeUtente, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                               
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+
+
+
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -7,8 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <Button Click="Button_Click">Vai a Categorie</Button>
-        </StackPanel>
+        <Button Content="Utente" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Height="136" Width="172"/>
     </Grid>
 </Window>

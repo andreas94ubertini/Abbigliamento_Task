@@ -115,5 +115,25 @@ namespace Abbigliamento_Task.DAL
             }
             return risultato;
         }
+
+        public bool DeleteById(int id)
+        {
+            bool risultato = false;
+            using (AbbigliamentoTaskContext ctx = new AbbigliamentoTaskContext())
+            {
+                try
+                {
+                    Utente t = ctx.Utentes.Single(t => t.UtenteId == id);
+                    ctx.Utentes.Remove(t);
+                    ctx.SaveChanges();
+                    risultato = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            return risultato;
+        }
     }
 }

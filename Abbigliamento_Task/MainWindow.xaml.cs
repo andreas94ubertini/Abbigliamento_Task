@@ -23,8 +23,8 @@ namespace Abbigliamento_Task
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CreazioneCat c = new CreazioneCat();
-            c.Show();
+            ProdottoWindow o = new ProdottoWindow();
+            o.Show();
             this.Close();
         }
     }
